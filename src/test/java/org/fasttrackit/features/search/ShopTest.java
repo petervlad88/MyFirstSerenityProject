@@ -26,5 +26,13 @@ public class ShopTest extends BaseTest {
         //assert
         shopSteps.verifyProductDescription();
     }
+    @Test
+    public void sortByDate(){
+        shopSteps.openShopCategory();
+        shopSteps.clickOnSortingByDate();
+
+        //assert
+        shopSteps.verifyFirstProductNameWasChanged();
+    }
 
 }

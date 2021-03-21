@@ -3,6 +3,7 @@ package org.fasttrackit.features.search;
 import net.thucydides.core.annotations.Steps;
 import org.fasttrackit.Utils.BaseTest;
 import org.fasttrackit.steps.serenity.AddToCartSteps;
+import org.fasttrackit.steps.serenity.SearchSteps;
 import org.fasttrackit.steps.serenity.ShopSteps;
 import org.junit.After;
 import org.junit.Test;
@@ -13,6 +14,8 @@ public class AddToCartTest extends BaseTest {
     private AddToCartSteps addToCartSteps;
     @Steps
     private ShopSteps shopSteps;
+    @Steps
+    private SearchSteps searchSteps;
 
     @After
     public void deleteAllProducts() {
@@ -50,4 +53,16 @@ public class AddToCartTest extends BaseTest {
         addToCartSteps.verifyEmptyCartMsg();
 
     }
+    @Test
+    public void addSearchedProductsToCart(){
+        searchSteps.setSearchProductName("Beanie");
+        searchSteps.clickSearch();
+        addToCartSteps.addToCartSearchedProducts(1);
+        addToCartSteps.addToCartSearchedProducts(0);
+        shopSteps.openCartPage();
+
+
+
+    }
+
 }

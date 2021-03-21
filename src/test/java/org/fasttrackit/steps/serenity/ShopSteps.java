@@ -49,4 +49,15 @@ public class ShopSteps {
     public void openCartPage() {
         shopPage.clickShopingCartLink();
     }
+
+    @Step
+    public void clickOnSortingByDate(){
+        shopPage.sortingByDate();
+    }
+    //assert
+    @Step
+    public void verifyFirstProductNameWasChanged(){
+        shopPage.verifyTheFirstProductWasChanged();
+    }
+
 }

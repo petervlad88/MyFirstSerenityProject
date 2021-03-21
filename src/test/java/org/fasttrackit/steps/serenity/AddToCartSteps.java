@@ -3,6 +3,7 @@ package org.fasttrackit.steps.serenity;
 import net.thucydides.core.annotations.Step;
 import org.fasttrackit.pages.CartPage;
 import org.fasttrackit.pages.HomePage;
+import org.fasttrackit.pages.SearchResultPage;
 import org.fasttrackit.pages.ShopPage;
 
 import java.net.CacheRequest;
@@ -12,6 +13,7 @@ public class AddToCartSteps {
     private HomePage homepage;
     private ShopPage shopPage;
     private CartPage cartPage;
+    private SearchResultPage searchResultPage;
 
     @Step
     public void openShopCategory() {
@@ -43,6 +45,11 @@ public class AddToCartSteps {
     @Step(" Click on Proceed to Checkout button")
     public void proceedToCheckout(){
         cartPage.clickproceedToCheckout();
+    }
+
+    @Step
+    public void addToCartSearchedProducts(int productIndex){
+        searchResultPage.AddToCart(productIndex);
     }
 
 }
